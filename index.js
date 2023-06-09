@@ -15,7 +15,7 @@ const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 const app = express()
 
 app.use(cors({
-  origin: CLIENT_URL,
+  origin: 'https://mesto-frontend-pied.vercel.apps',
   exposedHeaders: '*',
   credentials: true,
 }))
