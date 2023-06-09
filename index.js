@@ -9,16 +9,13 @@ const LoginController = require('./controllers/LoginController');
 const authMiddleware = require('./middlewares/auth');
 const ErrorHandler = require('./middlewares/ErrorHandlingMidlleware');
 const { celebrate, Joi } = require('celebrate');
+const corsMiddleware = require('./middlewares/corsMiddleware')
 
 const { PORT, MONGO_URI } = process.env;
 
 const app = express()
 
-app.use(cors({
-  origin: true,
-  exposedHeaders: '*',
-  credentials: true,
-}))
+app.use(corsMiddleware)
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
