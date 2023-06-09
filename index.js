@@ -16,7 +16,6 @@ const app = express()
 
 app.use(cors({
   origin: 'https://mesto-frontend-pied.vercel.app',
-  exposedHeaders: '*',
   credentials: true,
 }))
 app.use(cookieParser())
