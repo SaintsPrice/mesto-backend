@@ -17,7 +17,7 @@ const app = express()
 app.use(cors({
   origin: true,
   exposedHeaders: '*',
-  credentials: false,
+  credentials: true,
 }))
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
