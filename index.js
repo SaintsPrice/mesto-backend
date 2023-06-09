@@ -15,7 +15,7 @@ const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 const app = express()
 
 app.use(cors({
-  origin: true,
+  origin: CLIENT_URL,
   exposedHeaders: '*',
   credentials: true,
 }))
