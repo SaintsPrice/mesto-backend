@@ -9,7 +9,6 @@ const LoginController = require('./controllers/LoginController');
 const authMiddleware = require('./middlewares/auth');
 const ErrorHandler = require('./middlewares/ErrorHandlingMidlleware');
 const { celebrate, Joi } = require('celebrate');
-const corsMiddleware = require('./middlewares/corsMiddleware')
 
 const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 
