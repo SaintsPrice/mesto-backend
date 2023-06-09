@@ -15,8 +15,8 @@ const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 const app = express()
 
 app.use(cors({
-  credentials: false,
-  origin: true,
+  credentials: true,
+  origin: 'https://mesto-backend.vercel.app/refresh',
   
 }))
 app.use(cookieParser())
