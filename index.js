@@ -16,7 +16,7 @@ const app = express()
 
 app.use(cors({
   credentials: true,
-  origin: 'https://mesto-backend.vercel.app/refresh',
+  origin: 'https://mesto-frontend-pied.vercel.app',
   
 }))
 app.use(cookieParser())
