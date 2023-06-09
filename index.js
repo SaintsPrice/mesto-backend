@@ -11,11 +11,14 @@ const ErrorHandler = require('./middlewares/ErrorHandlingMidlleware');
 const { celebrate, Joi } = require('celebrate');
 const corsMiddleware = require('./middlewares/corsMiddleware')
 
-const { PORT, MONGO_URI } = process.env;
+const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 
 const app = express()
 
-app.use(corsMiddleware)
+app.use(cors({
+  origin: CLIENT_URL,
+  optionsSuccessStatus: 200
+}))
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
