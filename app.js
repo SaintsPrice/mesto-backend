@@ -16,8 +16,9 @@ const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 const app = express()
 
 app.use(cors({
+  origin: true,
+  exposedHeaders: '*',
   credentials: true,
-  origin: CLIENT_URL
 }))
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -49,7 +50,7 @@ app.get('/refresh', LoginController.refresh)
 
 start = async () => {
   try {
-    await mongoose.connect('mongodb+srv://maxim:33657hy@cluster0.wivudo5.mongodb.net/?retryWrites=true&w=majority', {
+    await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
