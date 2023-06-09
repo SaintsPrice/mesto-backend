@@ -1,5 +1,4 @@
 require('dotenv').config();
-const http = require('http')
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -48,8 +47,6 @@ app.post('/signup', celebrate ({
 app.post('/logout', LoginController.logout)
 app.get('/refresh', LoginController.refresh)
 
-const server = http.createServer(app)
-
 start = async () => {
   try {
     await mongoose.connect(MONGO_URI, {
@@ -57,7 +54,7 @@ start = async () => {
       useUnifiedTopology: true
     })
 
-    server.listen(PORT, () => console.log(`Сервер успешно запущен на порту ${PORT}`))
+    app.listen(PORT, () => console.log(`Сервер успешно запущен на порту ${PORT}`))
   } catch (error) {
     console.log(error)
     return res.status(500).json(error)
