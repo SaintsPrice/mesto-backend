@@ -8,14 +8,14 @@ const router = require('./routes/index');
 const LoginController = require('./controllers/LoginController');
 const authMiddleware = require('./middlewares/auth');
 const ErrorHandler = require('./middlewares/ErrorHandlingMidlleware');
-const cors = require('./middlewares/corsMiddleware')
+const corsMiddleware = require('./middlewares/corsMiddleware')
 const { celebrate, Joi } = require('celebrate');
 
 const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 
-const app = express()
+app.use(corsMiddleware)
 
-app.use(cors)
+const app = express()
 
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
