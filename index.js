@@ -13,8 +13,6 @@ const { celebrate, Joi } = require('celebrate');
 
 const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 
-app.use(cors())
-
 const app = express()
 
 app.use(cookieParser())
