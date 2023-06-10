@@ -13,7 +13,7 @@ const { celebrate, Joi } = require('celebrate');
 
 const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 
-app.use(corsMiddleware)
+app.use(cors())
 
 const app = express()
 
