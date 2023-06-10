@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/mesto-backend.vercel.app/(.*)", "destination": "/mesto-frontend-pied.vercel.app" }
+    { "source": "/mesto-backend.vercel.app/(.*)", "destination": "/" }
   ],
   "headers": [
     {
