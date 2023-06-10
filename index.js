@@ -15,11 +15,8 @@ const { PORT, MONGO_URI, CLIENT_URL } = process.env;
 
 const app = express()
 
-app.use(cors({
-  credentials: true,
-  origin: CLIENT_URL,
-  
-}))
+app.use(allowCors)
+
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
