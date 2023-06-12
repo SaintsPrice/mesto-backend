@@ -46,7 +46,7 @@ app.post('/signup', celebrate ({
   })
 }), LoginController.registration)
 app.post('/logout', LoginController.logout)
-app.get('/refresh', LoginController.refresh)
+app.post('/refresh', LoginController.refresh)
 
 start = async () => {
   try {
