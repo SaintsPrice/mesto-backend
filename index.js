@@ -46,7 +46,7 @@ app.post('/signup', celebrate ({
   })
 }), LoginController.registration)
 app.post('/logout', LoginController.logout)
-app.post('/refresh', LoginController.refresh)
+app.get('/refresh', LoginController.refresh)
 
 const server = http.createServer(app)
 
