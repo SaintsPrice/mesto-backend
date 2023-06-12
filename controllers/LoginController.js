@@ -1,7 +1,3 @@
-const User = require('../models/user')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const {secret} = require('../config')
 const LoginService = require('../service/login-service')
 
 class LoginController {

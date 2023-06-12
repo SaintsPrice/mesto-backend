@@ -2,13 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const http = require('http')
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const router = require('./routes/index');
 const LoginController = require('./controllers/LoginController');
 const authMiddleware = require('./middlewares/auth');
 const ErrorHandler = require('./middlewares/ErrorHandlingMidlleware');
-const corsMiddleware = require('./middlewares/corsMiddleware')
 const { celebrate, Joi } = require('celebrate');
 
 const { PORT, MONGO_URI, CLIENT_URL } = process.env;
@@ -48,6 +48,8 @@ app.post('/signup', celebrate ({
 app.post('/logout', LoginController.logout)
 app.post('/refresh', LoginController.refresh)
 
+const server = http.createServer(app)
+
 start = async () => {
   try {
     await mongoose.connect(MONGO_URI, {
@@ -55,7 +57,8 @@ start = async () => {
       useUnifiedTopology: true
     })
 
-    app.listen(PORT, () => console.log(`Сервер успешно запущен на порту ${PORT}`))
+    server.listen(PORT, () => console.log(`Сервер успешно запущен на порту ${PORT}`))
+
   } catch (error) {
     console.log(error)
     return res.status(500).json(error)
